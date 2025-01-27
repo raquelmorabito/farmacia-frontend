@@ -1,33 +1,35 @@
-import { Link } from 'react-router-dom'
-import Categoria from '../../../models/Categoria'
+import { Link } from "react-router-dom";
+import Categoria from "../../../models/Categoria";
 
 interface CardCategoriaProps {
-    categoria: Categoria
+  categoria: Categoria;
 }
 
-function CardCategoria({categoria}: CardCategoriaProps) {
-    return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
-                Categoria
-            </header>
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.nome}</p>
-            
-            <div className="flex">
-                <Link to='' 
-                    className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 
-                        flex items-center justify-center py-2'>
-                    <button>Editar</button>
-                </Link>
+function CardCategoria({ categoria }: CardCategoriaProps) {
+  return (
+    <div className="border flex flex-col rounded-lg overflow-hidden bg-white shadow-lg">
+      <header className="py-4 px-6 bg-black text-white font-semibold text-xl">
+        Categoria
+      </header>
+      <p className="px-6 py-4 text-xl bg-gray-100 text-gray-900">{categoria.nome}</p>
 
-                <Link to='' className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
-                    flex items-center justify-center'>
-                    <button>Deletar</button>
-                </Link>
-            </div>
+      <div className="flex gap-2 px-6 py-4">
+        <Link
+          to={`/editarcategoria/${categoria.id}`}
+          className="w-full text-white bg-black hover:bg-gray-800 flex items-center justify-center py-2 rounded"
+        >
+          Editar
+        </Link>
 
-        </div>
-    )
+        <Link
+          to={`/deletarcategoria/${categoria.id}`}
+          className="w-full text-white bg-red-600 hover:bg-red-800 flex items-center justify-center py-2 rounded"
+        >
+          Deletar
+        </Link>
+      </div>
+    </div>
+  );
 }
 
-export default CardCategoria
+export default CardCategoria;
