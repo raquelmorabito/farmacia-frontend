@@ -13,8 +13,6 @@ function Navbar() {
                         Produto
                         Categoria
                         Cadastrar categoria
-                        Perfil
-                        Sair
                     </div>
                 </div>
             </div>
